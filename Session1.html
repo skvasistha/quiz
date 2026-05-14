@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Image Representation Mastery Quiz</title>
+<style>
+body{
+font-family:Arial;
+background:#f4f4f4;
+padding:20px;
+}
+.container{
+background:white;
+padding:20px;
+border-radius:10px;
+max-width:900px;
+margin:auto;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+h1{
+text-align:center;
+color:#333;
+}
+.question{
+margin-bottom:20px;
+padding:10px;
+border-left:5px solid #3498db;
+background:#fafafa;
+}
+button{
+background:#3498db;
+color:white;
+padding:10px 20px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+font-size:16px;
+}
+button:hover{
+background:#2980b9;
+}
+.result{
+margin-top:20px;
+font-size:20px;
+font-weight:bold;
+}
+.correct{
+color:green;
+}
+.wrong{
+color:red;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>Image Representation Quiz</h1>
+
+<form id="quizForm">
+
+<div class="question">
+<p>1. What is the smallest unit of a digital image?</p>
+<input type="radio" name="q1" value="A"> A. Kernel<br>
+<input type="radio" name="q1" value="B"> B. Pixel<br>
+<input type="radio" name="q1" value="C"> C. Frame<br>
+<input type="radio" name="q1" value="D"> D. Vector<br>
+</div>
+
+<div class="question">
+<p>2. Which connectivity includes diagonal neighbors?</p>
+<input type="radio" name="q2" value="A"> A. 2-connectivity<br>
+<input type="radio" name="q2" value="B"> B. 4-connectivity<br>
+<input type="radio" name="q2" value="C"> C. 8-connectivity<br>
+<input type="radio" name="q2" value="D"> D. Linear connectivity<br>
+</div>
+
+<div class="question">
+<p>3. Sampling mainly affects:</p>
+<input type="radio" name="q3" value="A"> A. Spatial resolution<br>
+<input type="radio" name="q3" value="B"> B. File extension<br>
+<input type="radio" name="q3" value="C"> C. Compression ratio<br>
+<input type="radio" name="q3" value="D"> D. Connectivity<br>
+</div>
+
+<div class="question">
+<p>4. Quantization determines:</p>
+<input type="radio" name="q4" value="A"> A. Number of rows<br>
+<input type="radio" name="q4" value="B"> B. Intensity levels<br>
+<input type="radio" name="q4" value="C"> C. Image width<br>
+<input type="radio" name="q4" value="D"> D. Pixel coordinates<br>
+</div>
+
+<div class="question">
+<p>5. An 8-bit image has how many intensity levels?</p>
+<input type="radio" name="q5" value="A"> A. 64<br>
+<input type="radio" name="q5" value="B"> B. 128<br>
+<input type="radio" name="q5" value="C"> C. 256<br>
+<input type="radio" name="q5" value="D"> D. 512<br>
+</div>
+
+<div class="question">
+<p>6. Which issue occurs due to low sampling?</p>
+<input type="radio" name="q6" value="A"> A. Smoother edges<br>
+<input type="radio" name="q6" value="B"> B. Pixelation<br>
+<input type="radio" name="q6" value="C"> C. Better contrast<br>
+<input type="radio" name="q6" value="D"> D. Sharper texture<br>
+</div>
+
+<div class="question">
+<p>7. A 4-neighborhood excludes:</p>
+<input type="radio" name="q7" value="A"> A. Left neighbor<br>
+<input type="radio" name="q7" value="B"> B. Right neighbor<br>
+<input type="radio" name="q7" value="C"> C. Top neighbor<br>
+<input type="radio" name="q7" value="D"> D. Diagonal neighbor<br>
+</div>
+
+<div class="question">
+<p>8. The formula for intensity levels is:</p>
+<input type="radio" name="q8" value="A"> A. L=k²<br>
+<input type="radio" name="q8" value="B"> B. L=2k<br>
+<input type="radio" name="q8" value="C"> C. L=2^k<br>
+<input type="radio" name="q8" value="D"> D. L=k/2<br>
+</div>
+
+<div class="question">
+<p>9. Which property improves image detail?</p>
+<input type="radio" name="q9" value="A"> A. Higher sampling<br>
+<input type="radio" name="q9" value="B"> B. Lower sampling<br>
+<input type="radio" name="q9" value="C"> C. Lower connectivity<br>
+<input type="radio" name="q9" value="D"> D. Cropping<br>
+</div>
+
+<div class="question">
+<p>10. A 10-bit image contains:</p>
+<input type="radio" name="q10" value="A"> A. 256 levels<br>
+<input type="radio" name="q10" value="B"> B. 512 levels<br>
+<input type="radio" name="q10" value="C"> C. 1024 levels<br>
+<input type="radio" name="q10" value="D"> D. 2048 levels<br>
+</div>
+
+<button type="button" onclick="checkQuiz()">Submit Quiz</button>
+
+</form>
+
+<div id="result" class="result"></div>
+
+</div>
+
+<script>
+function checkQuiz(){
+
+let answers={
+q1:"B",
+q2:"C",
+q3:"A",
+q4:"B",
+q5:"C",
+q6:"B",
+q7:"D",
+q8:"C",
+q9:"A",
+q10:"C"
+};
+
+let score=0;
+
+for(let q in answers){
+let selected=document.querySelector('input[name="'+q+'"]:checked');
+if(selected && selected.value===answers[q]){
+score++;
+}
+}
+
+let percentage=(score/10)*100;
+
+let result=document.getElementById("result");
+
+if(score>=8){
+result.innerHTML=
+"Score: "+score+"/10 ("+percentage+"%)<br><span class='correct'>Mastery Achieved! Excellent understanding of image representation concepts.</span>";
+}
+else{
+result.innerHTML=
+"Score: "+score+"/10 ("+percentage+"%)<br><span class='wrong'>Please revise the lesson and try again before proceeding.</span>";
+}
+
+}
+</script>
+
+</body>
+</html>
