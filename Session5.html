@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Image Processing Mastery Quiz</title>
+<style>
+body{
+font-family:Arial;
+background:#f4f6f9;
+padding:20px;
+}
+.container{
+max-width:900px;
+margin:auto;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+h1{
+text-align:center;
+color:#2c3e50;
+}
+.question{
+margin-bottom:20px;
+padding:15px;
+background:#eef2f7;
+border-radius:8px;
+}
+button{
+padding:12px 20px;
+background:#2c3e50;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+font-size:16px;
+}
+#result{
+margin-top:20px;
+font-size:20px;
+font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>Common Image Processing Operations Quiz</h1>
+
+<form id="quizForm">
+
+<div class="question">
+<p>1. What is the primary goal of smoothing?</p>
+<input type="radio" name="q1" value="A"> A. Enhance edges<br>
+<input type="radio" name="q1" value="B"> B. Reduce noise<br>
+<input type="radio" name="q1" value="C"> C. Increase resolution<br>
+<input type="radio" name="q1" value="D"> D. Compress image<br>
+</div>
+
+<div class="question">
+<p>2. Which filter is best for salt-and-pepper noise?</p>
+<input type="radio" name="q2" value="A"> A. Mean filter<br>
+<input type="radio" name="q2" value="B"> B. Gaussian filter<br>
+<input type="radio" name="q2" value="C"> C. Median filter<br>
+<input type="radio" name="q2" value="D"> D. High-pass filter<br>
+</div>
+
+<div class="question">
+<p>3. Sharpening mainly enhances which components?</p>
+<input type="radio" name="q3" value="A"> A. Low frequencies<br>
+<input type="radio" name="q3" value="B"> B. High frequencies<br>
+<input type="radio" name="q3" value="C"> C. Background only<br>
+<input type="radio" name="q3" value="D"> D. Uniform regions<br>
+</div>
+
+<div class="question">
+<p>4. What does Gaussian filtering preserve better than mean filtering?</p>
+<input type="radio" name="q4" value="A"> A. Noise<br>
+<input type="radio" name="q4" value="B"> B. Compression ratio<br>
+<input type="radio" name="q4" value="C"> C. Local image structure<br>
+<input type="radio" name="q4" value="D"> D. File size<br>
+</div>
+
+<div class="question">
+<p>5. Which operation may amplify image noise?</p>
+<input type="radio" name="q5" value="A"> A. Smoothing<br>
+<input type="radio" name="q5" value="B"> B. Median filtering<br>
+<input type="radio" name="q5" value="C"> C. Sharpening<br>
+<input type="radio" name="q5" value="D"> D. Averaging<br>
+</div>
+
+<div class="question">
+<p>6. In unsharp masking, what does the mask contain?</p>
+<input type="radio" name="q6" value="A"> A. Edge details<br>
+<input type="radio" name="q6" value="B"> B. Uniform brightness<br>
+<input type="radio" name="q6" value="C"> C. Image metadata<br>
+<input type="radio" name="q6" value="D"> D. Compression information<br>
+</div>
+
+<div class="question">
+<p>7. Which filter computes the average of neighboring pixels?</p>
+<input type="radio" name="q7" value="A"> A. Laplacian filter<br>
+<input type="radio" name="q7" value="B"> B. Median filter<br>
+<input type="radio" name="q7" value="C"> C. Mean filter<br>
+<input type="radio" name="q7" value="D"> D. High-pass filter<br>
+</div>
+
+<div class="question">
+<p>8. The Laplacian operator is based on:</p>
+<input type="radio" name="q8" value="A"> A. First derivative only<br>
+<input type="radio" name="q8" value="B"> B. Second derivative<br>
+<input type="radio" name="q8" value="C"> C. Histogram equalization<br>
+<input type="radio" name="q8" value="D"> D. Compression coding<br>
+</div>
+
+<div class="question">
+<p>9. What is a disadvantage of excessive smoothing?</p>
+<input type="radio" name="q9" value="A"> A. Increased noise<br>
+<input type="radio" name="q9" value="B"> B. Loss of details<br>
+<input type="radio" name="q9" value="C"> C. Edge enhancement<br>
+<input type="radio" name="q9" value="D"> D. Better texture visibility<br>
+</div>
+
+<div class="question">
+<p>10. Which operation highlights edges most strongly?</p>
+<input type="radio" name="q10" value="A"> A. High-pass filtering<br>
+<input type="radio" name="q10" value="B"> B. Mean filtering<br>
+<input type="radio" name="q10" value="C"> C. Gaussian smoothing<br>
+<input type="radio" name="q10" value="D"> D. Median smoothing<br>
+</div>
+
+<button type="button" onclick="checkQuiz()">Submit Quiz</button>
+
+</form>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+function checkQuiz(){
+
+let answers = {
+q1:"B",
+q2:"C",
+q3:"B",
+q4:"C",
+q5:"C",
+q6:"A",
+q7:"C",
+q8:"B",
+q9:"B",
+q10:"A"
+};
+
+let score = 0;
+
+for(let key in answers){
+let selected = document.querySelector('input[name="'+key+'"]:checked');
+if(selected && selected.value === answers[key]){
+score++;
+}
+}
+
+let percentage = (score/10)*100;
+
+let resultText = "Your Score: " + score + "/10 (" + percentage + "%)<br>";
+
+if(score >= 8){
+resultText += "Excellent! You have achieved mastery and are ready to progress.";
+}
+else{
+resultText += "You should revise smoothing and sharpening concepts before progressing.";
+}
+
+document.getElementById("result").innerHTML = resultText;
+}
+</script>
+
+</body>
+</html>
