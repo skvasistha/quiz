@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Morphological Operations Mastery Quiz</title>
+<style>
+body{
+font-family:Arial, sans-serif;
+background:#f4f6f9;
+padding:20px;
+line-height:1.6;
+}
+.container{
+max-width:900px;
+margin:auto;
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0px 0px 10px rgba(0,0,0,0.2);
+}
+h1{
+text-align:center;
+color:#1f4e79;
+}
+.question{
+margin-bottom:25px;
+padding:15px;
+background:#eef4ff;
+border-radius:8px;
+}
+button{
+background:#1f4e79;
+color:white;
+padding:12px 20px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-size:16px;
+}
+button:hover{
+background:#163a5c;
+}
+.result{
+margin-top:25px;
+font-size:20px;
+font-weight:bold;
+}
+.correct{
+color:green;
+}
+.wrong{
+color:red;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>Morphological Operations Mastery Quiz</h1>
+
+<form id="quizForm">
+
+<div class="question">
+<p>1. Which operation primarily shrinks foreground objects?</p>
+<label><input type="radio" name="q1" value="A"> A. Dilation</label><br>
+<label><input type="radio" name="q1" value="B"> B. Erosion</label><br>
+<label><input type="radio" name="q1" value="C"> C. Thresholding</label><br>
+<label><input type="radio" name="q1" value="D"> D. Histogram Equalization</label>
+</div>
+
+<div class="question">
+<p>2. Which operation is best for filling small holes inside objects?</p>
+<label><input type="radio" name="q2" value="A"> A. Opening</label><br>
+<label><input type="radio" name="q2" value="B"> B. Erosion</label><br>
+<label><input type="radio" name="q2" value="C"> C. Closing</label><br>
+<label><input type="radio" name="q2" value="D"> D. Edge Detection</label>
+</div>
+
+<div class="question">
+<p>3. What is the purpose of a structuring element?</p>
+<label><input type="radio" name="q3" value="A"> A. Compress images</label><br>
+<label><input type="radio" name="q3" value="B"> B. Probe neighborhood structure</label><br>
+<label><input type="radio" name="q3" value="C"> C. Convert RGB to grayscale</label><br>
+<label><input type="radio" name="q3" value="D"> D. Increase image resolution</label>
+</div>
+
+<div class="question">
+<p>4. Which operation sequence represents opening?</p>
+<label><input type="radio" name="q4" value="A"> A. Dilation then erosion</label><br>
+<label><input type="radio" name="q4" value="B"> B. Erosion then dilation</label><br>
+<label><input type="radio" name="q4" value="C"> C. Threshold then inversion</label><br>
+<label><input type="radio" name="q4" value="D"> D. Smoothing then sharpening</label>
+</div>
+
+<div class="question">
+<p>5. Grayscale dilation computes which value?</p>
+<label><input type="radio" name="q5" value="A"> A. Minimum value</label><br>
+<label><input type="radio" name="q5" value="B"> B. Average value</label><br>
+<label><input type="radio" name="q5" value="C"> C. Maximum value</label><br>
+<label><input type="radio" name="q5" value="D"> D. Median value</label>
+</div>
+
+<div class="question">
+<p>6. Which operation removes isolated foreground noise?</p>
+<label><input type="radio" name="q6" value="A"> A. Opening</label><br>
+<label><input type="radio" name="q6" value="B"> B. Closing</label><br>
+<label><input type="radio" name="q6" value="C"> C. Dilation</label><br>
+<label><input type="radio" name="q6" value="D"> D. Rotation</label>
+</div>
+
+<div class="question">
+<p>7. What happens if dilation is repeatedly applied?</p>
+<label><input type="radio" name="q7" value="A"> A. Objects shrink</label><br>
+<label><input type="radio" name="q7" value="B"> B. Nearby objects may merge</label><br>
+<label><input type="radio" name="q7" value="C"> C. Pixels become grayscale</label><br>
+<label><input type="radio" name="q7" value="D"> D. Noise always disappears</label>
+</div>
+
+<div class="question">
+<p>8. Which morphology operation is most suitable before OCR recognition?</p>
+<label><input type="radio" name="q8" value="A"> A. Random pixel insertion</label><br>
+<label><input type="radio" name="q8" value="B"> B. Opening and closing</label><br>
+<label><input type="radio" name="q8" value="C"> C. Color inversion only</label><br>
+<label><input type="radio" name="q8" value="D"> D. JPEG compression</label>
+</div>
+
+<div class="question">
+<p>9. Which structuring element best preserves circular biological cells?</p>
+<label><input type="radio" name="q9" value="A"> A. Circular SE</label><br>
+<label><input type="radio" name="q9" value="B"> B. Large rectangular SE</label><br>
+<label><input type="radio" name="q9" value="C"> C. Random SE</label><br>
+<label><input type="radio" name="q9" value="D"> D. Single diagonal SE</label>
+</div>
+
+<div class="question">
+<p>10. Morphological gradient is calculated using:</p>
+<label><input type="radio" name="q10" value="A"> A. Erosion + Dilation</label><br>
+<label><input type="radio" name="q10" value="B"> B. Dilation − Erosion</label><br>
+<label><input type="radio" name="q10" value="C"> C. Average × Median</label><br>
+<label><input type="radio" name="q10" value="D"> D. Histogram / Threshold</label>
+</div>
+
+<button type="button" onclick="checkQuiz()">Submit Quiz</button>
+
+</form>
+
+<div id="result" class="result"></div>
+
+</div>
+
+<script>
+function checkQuiz(){
+
+const answers = {
+q1:"B",
+q2:"C",
+q3:"B",
+q4:"B",
+q5:"C",
+q6:"A",
+q7:"B",
+q8:"B",
+q9:"A",
+q10:"B"
+};
+
+let score = 0;
+let total = 10;
+
+for(let key in answers){
+let selected = document.querySelector(`input[name="${key}"]:checked`);
+if(selected && selected.value === answers[key]){
+score++;
+}
+}
+
+let percentage = (score/total)*100;
+
+let resultText = `
+Score: ${score} / ${total}<br>
+Percentage: ${percentage}%<br><br>
+`;
+
+if(score >= 8){
+resultText += "<span class='correct'>Excellent! Mastery achieved. You are ready to progress to advanced morphology and segmentation topics.</span>";
+}
+else{
+resultText += "<span class='wrong'>You should revise the lesson before proceeding further. Focus on erosion, dilation, opening, and closing concepts.</span>";
+}
+
+document.getElementById("result").innerHTML = resultText;
+}
+</script>
+
+</body>
+</html>
