@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Video Analytics Mastery Quiz</title>
+<style>
+body{
+font-family:Arial;
+background:#f4f6f9;
+padding:20px;
+}
+.container{
+background:white;
+padding:20px;
+border-radius:10px;
+max-width:900px;
+margin:auto;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+h1{
+text-align:center;
+color:#1f4e79;
+}
+.question{
+margin-bottom:20px;
+padding:15px;
+background:#eef3f7;
+border-radius:8px;
+}
+button{
+padding:12px 20px;
+background:#1f4e79;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+font-size:16px;
+}
+#result{
+margin-top:20px;
+font-size:20px;
+font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>Video Analytics Quiz</h1>
+
+<form id="quizForm">
+
+<div class="question">
+<p>1. What type of data represents changes over time in videos?</p>
+<input type="radio" name="q1" value="a"> A. Spatial Data<br>
+<input type="radio" name="q1" value="b"> B. Temporal Data<br>
+<input type="radio" name="q1" value="c"> C. Binary Data<br>
+<input type="radio" name="q1" value="d"> D. Static Data<br>
+</div>
+
+<div class="question">
+<p>2. FPS stands for:</p>
+<input type="radio" name="q2" value="a"> A. Frames Per Second<br>
+<input type="radio" name="q2" value="b"> B. Frames Per Signal<br>
+<input type="radio" name="q2" value="c"> C. Frame Pixel Size<br>
+<input type="radio" name="q2" value="d"> D. Fast Pixel Sampling<br>
+</div>
+
+<div class="question">
+<p>3. Higher FPS mainly improves:</p>
+<input type="radio" name="q3" value="a"> A. Audio Quality<br>
+<input type="radio" name="q3" value="b"> B. Motion Smoothness<br>
+<input type="radio" name="q3" value="c"> C. Compression Ratio<br>
+<input type="radio" name="q3" value="d"> D. Brightness<br>
+</div>
+
+<div class="question">
+<p>4. Resolution determines:</p>
+<input type="radio" name="q4" value="a"> A. Pixel Dimensions<br>
+<input type="radio" name="q4" value="b"> B. Audio Volume<br>
+<input type="radio" name="q4" value="c"> C. Frame Delay<br>
+<input type="radio" name="q4" value="d"> D. Lens Shape<br>
+</div>
+
+<div class="question">
+<p>5. Motion estimation commonly uses:</p>
+<input type="radio" name="q5" value="a"> A. Histogram Matching<br>
+<input type="radio" name="q5" value="b"> B. Frame Difference<br>
+<input type="radio" name="q5" value="c"> C. Audio Filtering<br>
+<input type="radio" name="q5" value="d"> D. Color Compression<br>
+</div>
+
+<div class="question">
+<p>6. Which resolution corresponds to Full HD?</p>
+<input type="radio" name="q6" value="a"> A. 640×480<br>
+<input type="radio" name="q6" value="b"> B. 1280×720<br>
+<input type="radio" name="q6" value="c"> C. 1920×1080<br>
+<input type="radio" name="q6" value="d"> D. 3840×2160<br>
+</div>
+
+<div class="question">
+<p>7. Higher resolution generally results in:</p>
+<input type="radio" name="q7" value="a"> A. Better Detail<br>
+<input type="radio" name="q7" value="b"> B. Lower Storage<br>
+<input type="radio" name="q7" value="c"> C. Fewer Pixels<br>
+<input type="radio" name="q7" value="d"> D. Reduced Clarity<br>
+</div>
+
+<div class="question">
+<p>8. A low FPS video appears:</p>
+<input type="radio" name="q8" value="a"> A. Smoother<br>
+<input type="radio" name="q8" value="b"> B. More Continuous<br>
+<input type="radio" name="q8" value="c"> C. Choppy<br>
+<input type="radio" name="q8" value="d"> D. Sharper<br>
+</div>
+
+<div class="question">
+<p>9. Videos differ from images because videos include:</p>
+<input type="radio" name="q9" value="a"> A. Temporal Information<br>
+<input type="radio" name="q9" value="b"> B. Only Colors<br>
+<input type="radio" name="q9" value="c"> C. Only Pixels<br>
+<input type="radio" name="q9" value="d"> D. Compression Data<br>
+</div>
+
+<div class="question">
+<p>10. High FPS and high resolution together increase:</p>
+<input type="radio" name="q10" value="a"> A. Storage and Computation<br>
+<input type="radio" name="q10" value="b"> B. Audio Signals<br>
+<input type="radio" name="q10" value="c"> C. Lens Diameter<br>
+<input type="radio" name="q10" value="d"> D. Brightness Only<br>
+</div>
+
+<button type="button" onclick="checkAnswers()">Submit Quiz</button>
+
+</form>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+function checkAnswers(){
+
+let answers = {
+q1:"b",
+q2:"a",
+q3:"b",
+q4:"a",
+q5:"b",
+q6:"c",
+q7:"a",
+q8:"c",
+q9:"a",
+q10:"a"
+};
+
+let score = 0;
+
+for(let q in answers){
+let options = document.getElementsByName(q);
+
+for(let i=0;i<options.length;i++){
+if(options[i].checked && options[i].value===answers[q]){
+score++;
+}
+}
+}
+
+let percentage = (score/10)*100;
+
+let resultText = "Score: " + score + "/10 (" + percentage + "%)<br>";
+
+if(score >= 8){
+resultText += "Excellent! You achieved mastery in this session and are ready to progress.";
+}
+else{
+resultText += "You should revise the session concepts before moving forward.";
+}
+
+document.getElementById("result").innerHTML = resultText;
+}
+</script>
+
+</body>
+</html>
