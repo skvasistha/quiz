@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>LBP Mastery Quiz</title>
+<style>
+body{
+font-family:Arial;
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+.question{
+margin-bottom:20px;
+padding:10px;
+border:1px solid #ddd;
+border-radius:8px;
+}
+button{
+padding:10px 20px;
+font-size:16px;
+}
+#result{
+margin-top:20px;
+font-size:20px;
+font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<h2>Image Texture Features and LBP Mastery Quiz</h2>
+
+<form id="quiz">
+
+<div class="question">
+Q1. Texture mainly describes:
+<br><input type="radio" name="q1" value="A">A. Surface patterns
+<br><input type="radio" name="q1" value="B">B. Filename
+<br><input type="radio" name="q1" value="C">C. Compression ratio
+<br><input type="radio" name="q1" value="D">D. Memory size
+</div>
+
+<div class="question">
+Q2. LBP compares:
+<br><input type="radio" name="q2" value="A">A. Histograms
+<br><input type="radio" name="q2" value="B">B. Neighbor pixels with center pixel
+<br><input type="radio" name="q2" value="C">C. Images with templates
+<br><input type="radio" name="q2" value="D">D. Edges only
+</div>
+
+<div class="question">
+Q3. If neighbor ≥ center:
+<br><input type="radio" name="q3" value="A">A. 0
+<br><input type="radio" name="q3" value="B">B. −1
+<br><input type="radio" name="q3" value="C">C. 1
+<br><input type="radio" name="q3" value="D">D. 255
+</div>
+
+<div class="question">
+Q4. LBP is mainly used for:
+<br><input type="radio" name="q4" value="A">A. Texture description
+<br><input type="radio" name="q4" value="B">B. Encryption
+<br><input type="radio" name="q4" value="C">C. Compression
+<br><input type="radio" name="q4" value="D">D. Networking
+</div>
+
+<div class="question">
+Q5. Output of LBP at a pixel is:
+<br><input type="radio" name="q5" value="A">A. Binary/decimal code
+<br><input type="radio" name="q5" value="B">B. RGB image
+<br><input type="radio" name="q5" value="C">C. Audio signal
+<br><input type="radio" name="q5" value="D">D. Edge map only
+</div>
+
+<div class="question">
+Q6. Histogram of LBP represents:
+<br><input type="radio" name="q6" value="A">A. Pixel locations
+<br><input type="radio" name="q6" value="B">B. Texture pattern distribution
+<br><input type="radio" name="q6" value="C">C. File size
+<br><input type="radio" name="q6" value="D">D. Color depth
+</div>
+
+<div class="question">
+Q7. A major advantage of LBP is:
+<br><input type="radio" name="q7" value="A">A. Simplicity
+<br><input type="radio" name="q7" value="B">B. Huge computation
+<br><input type="radio" name="q7" value="C">C. Requires color images
+<br><input type="radio" name="q7" value="D">D. Needs GPUs only
+</div>
+
+<div class="question">
+Q8. A limitation of LBP is:
+<br><input type="radio" name="q8" value="A">A. Noise sensitivity
+<br><input type="radio" name="q8" value="B">B. Cannot process grayscale
+<br><input type="radio" name="q8" value="C">C. No histogram possible
+<br><input type="radio" name="q8" value="D">D. Works only on videos
+</div>
+
+<div class="question">
+Q9. LBP belongs to:
+<br><input type="radio" name="q9" value="A">A. Local texture descriptors
+<br><input type="radio" name="q9" value="B">B. Encryption algorithms
+<br><input type="radio" name="q9" value="C">C. Network protocols
+<br><input type="radio" name="q9" value="D">D. Databases
+</div>
+
+<div class="question">
+Q10. Increasing neighborhood size can:
+<br><input type="radio" name="q10" value="A">A. Capture larger texture structures
+<br><input type="radio" name="q10" value="B">B. Remove all noise
+<br><input type="radio" name="q10" value="C">C. Eliminate histograms
+<br><input type="radio" name="q10" value="D">D. Convert image to color
+</div>
+
+<button type="button" onclick="gradeQuiz()">Submit Quiz</button>
+
+</form>
+
+<div id="result"></div>
+
+<script>
+function gradeQuiz(){
+const answers={
+q1:'A',q2:'B',q3:'C',q4:'A',q5:'A',
+q6:'B',q7:'A',q8:'A',q9:'A',q10:'A'
+};
+
+let score=0;
+
+for(let q in answers){
+let selected=document.querySelector(
+'input[name="'+q+'"]:checked'
+);
+
+if(selected && selected.value===answers[q]){
+score++;
+}
+}
+
+let percent=(score/10)*100;
+
+let msg="Score: "+score+"/10 ("+percent+"%)<br>";
+
+if(score>=8){
+msg+="🎉 Mastery Achieved! You are ready to progress.";
+}
+else{
+msg+="📚 Recommendation: Revise the session and attempt the quiz again.";
+}
+
+document.getElementById("result").innerHTML=msg;
+}
+</script>
+
+</body>
+</html>
