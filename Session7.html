@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Color Histogram Mastery Quiz</title>
+<style>
+body{font-family:Arial;max-width:900px;margin:auto;padding:20px;}
+.question{margin-bottom:15px;}
+button{padding:10px 20px;background:#2c7be5;color:white;border:none;border-radius:5px;}
+#result{margin-top:20px;font-weight:bold;font-size:18px;}
+</style>
+</head>
+<body>
+
+<h2>Color Histogram Mastery Quiz</h2>
+
+<form id="quiz">
+
+<div class="question">
+1. A color histogram represents:
+<br><input type="radio" name="q1" value="A"> Color distribution
+<br><input type="radio" name="q1" value="B"> Shape
+<br><input type="radio" name="q1" value="C"> Texture
+<br><input type="radio" name="q1" value="D"> Resolution
+</div>
+
+<div class="question">
+2. Histogram bins store:
+<br><input type="radio" name="q2" value="A"> Pixel count
+<br><input type="radio" name="q2" value="B"> Edge direction
+<br><input type="radio" name="q2" value="C"> Shape
+<br><input type="radio" name="q2" value="D"> Camera data
+</div>
+
+<div class="question">
+3. RGB images contain:
+<br><input type="radio" name="q3" value="A"> 1 channel
+<br><input type="radio" name="q3" value="B"> 2 channels
+<br><input type="radio" name="q3" value="C"> 3 channels
+<br><input type="radio" name="q3" value="D"> 4 channels
+</div>
+
+<div class="question">
+4. Histogram normalization converts counts into:
+<br><input type="radio" name="q4" value="A"> Probabilities
+<br><input type="radio" name="q4" value="B"> Edges
+<br><input type="radio" name="q4" value="C"> Shapes
+<br><input type="radio" name="q4" value="D"> Pixels
+</div>
+
+<div class="question">
+5. A dominant red histogram indicates:
+<br><input type="radio" name="q5" value="A"> Mostly red image
+<br><input type="radio" name="q5" value="B"> Mostly blue image
+<br><input type="radio" name="q5" value="C"> Mostly green image
+<br><input type="radio" name="q5" value="D"> Texture image
+</div>
+
+<div class="question">
+6. Histogram comparison is commonly used in:
+<br><input type="radio" name="q6" value="A"> Image retrieval
+<br><input type="radio" name="q6" value="B"> Audio coding
+<br><input type="radio" name="q6" value="C"> Text editing
+<br><input type="radio" name="q6" value="D"> Database indexing
+</div>
+
+<div class="question">
+7. Histogram ignores:
+<br><input type="radio" name="q7" value="A"> Color count
+<br><input type="radio" name="q7" value="B"> Spatial location
+<br><input type="radio" name="q7" value="C"> Pixel values
+<br><input type="radio" name="q7" value="D"> Frequency
+</div>
+
+<div class="question">
+8. Histogram vector [7,5,4] contains:
+<br><input type="radio" name="q8" value="A"> Frequencies
+<br><input type="radio" name="q8" value="B"> Shapes
+<br><input type="radio" name="q8" value="C"> Edges
+<br><input type="radio" name="q8" value="D"> Coordinates
+</div>
+
+<div class="question">
+9. Color features are useful for:
+<br><input type="radio" name="q9" value="A"> Fruit sorting
+<br><input type="radio" name="q9" value="B"> Audio classification
+<br><input type="radio" name="q9" value="C"> Text mining
+<br><input type="radio" name="q9" value="D"> Speech recognition
+</div>
+
+<div class="question">
+10. Histogram matching works best when:
+<br><input type="radio" name="q10" value="A"> Color distributions are similar
+<br><input type="radio" name="q10" value="B"> Shapes are identical
+<br><input type="radio" name="q10" value="C"> Textures match only
+<br><input type="radio" name="q10" value="D"> Resolution is equal
+</div>
+
+<button type="button" onclick="gradeQuiz()">Submit Quiz</button>
+
+</form>
+
+<div id="result"></div>
+
+<script>
+function gradeQuiz(){
+const answers={
+q1:'A',q2:'A',q3:'C',q4:'A',q5:'A',
+q6:'A',q7:'B',q8:'A',q9:'A',q10:'A'
+};
+
+let score=0;
+
+for(let q in answers){
+let selected=document.querySelector('input[name="'+q+'"]:checked');
+if(selected && selected.value===answers[q]) score++;
+}
+
+let percent=(score/10)*100;
+
+let msg="Score = "+score+"/10 ("+percent+"%)<br>";
+
+if(score>=8){
+msg+="🏆 Mastery Achieved! Proceed to advanced image features.";
+}
+else{
+msg+="📚 Recommendation: Revise Color Histograms before moving ahead.";
+}
+
+document.getElementById("result").innerHTML=msg;
+}
+</script>
+
+</body>
+</html>
