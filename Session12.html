@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SURF Mastery Quiz</title>
+<style>
+body{font-family:Arial;padding:20px;max-width:900px;margin:auto;}
+.question{margin-bottom:20px;}
+button{padding:10px 20px;background:#007bff;color:white;border:none;}
+#result{margin-top:20px;font-size:20px;font-weight:bold;}
+</style>
+</head>
+<body>
+
+<h2>SURF Mastery Quiz</h2>
+
+<form id="quiz">
+
+<div class="question">
+<p>1. What does SURF stand for?</p>
+<input type="radio" name="q1" value="1">A. Speeded-Up Robust Features<br>
+<input type="radio" name="q1" value="0">B. Simple Unified Recognition Framework<br>
+<input type="radio" name="q1" value="0">C. Scale Utility Response Filter<br>
+<input type="radio" name="q1" value="0">D. Structured Uniform Region Finder<br>
+</div>
+
+<div class="question">
+<p>2. Which matrix is used for keypoint detection?</p>
+<input type="radio" name="q2" value="0">A. Covariance Matrix<br>
+<input type="radio" name="q2" value="1">B. Hessian Matrix<br>
+<input type="radio" name="q2" value="0">C. Rotation Matrix<br>
+<input type="radio" name="q2" value="0">D. Projection Matrix<br>
+</div>
+
+<div class="question">
+<p>3. SURF achieves speed mainly using?</p>
+<input type="radio" name="q3" value="0">A. Compression<br>
+<input type="radio" name="q3" value="1">B. Integral Images<br>
+<input type="radio" name="q3" value="0">C. Histogram Equalization<br>
+<input type="radio" name="q3" value="0">D. Morphology<br>
+</div>
+
+<div class="question">
+<p>4. Determinant of Hessian identifies?</p>
+<input type="radio" name="q4" value="1">A. Strong Keypoints<br>
+<input type="radio" name="q4" value="0">B. Noise Removal<br>
+<input type="radio" name="q4" value="0">C. Compression Rate<br>
+<input type="radio" name="q4" value="0">D. Color Depth<br>
+</div>
+
+<div class="question">
+<p>5. SURF orientation is computed from?</p>
+<input type="radio" name="q5" value="0">A. RGB Values<br>
+<input type="radio" name="q5" value="1">B. Haar Wavelet Responses<br>
+<input type="radio" name="q5" value="0">C. Histograms Only<br>
+<input type="radio" name="q5" value="0">D. Compression Blocks<br>
+</div>
+
+<div class="question">
+<p>6. Standard SURF descriptor length is?</p>
+<input type="radio" name="q6" value="0">A. 32<br>
+<input type="radio" name="q6" value="1">B. 64<br>
+<input type="radio" name="q6" value="0">C. 96<br>
+<input type="radio" name="q6" value="0">D. 256<br>
+</div>
+
+<div class="question">
+<p>7. Scale-space in SURF is built by?</p>
+<input type="radio" name="q7" value="0">A. Rotating Images<br>
+<input type="radio" name="q7" value="1">B. Increasing Filter Size<br>
+<input type="radio" name="q7" value="0">C. Compression<br>
+<input type="radio" name="q7" value="0">D. Cropping<br>
+</div>
+
+<div class="question">
+<p>8. Small descriptor distance implies?</p>
+<input type="radio" name="q8" value="1">A. Good Match<br>
+<input type="radio" name="q8" value="0">B. No Match<br>
+<input type="radio" name="q8" value="0">C. Noise<br>
+<input type="radio" name="q8" value="0">D. Rotation Error<br>
+</div>
+
+<div class="question">
+<p>9. SURF is generally faster than?</p>
+<input type="radio" name="q9" value="0">A. FAST Detector<br>
+<input type="radio" name="q9" value="1">B. SIFT<br>
+<input type="radio" name="q9" value="0">C. ORB<br>
+<input type="radio" name="q9" value="0">D. BRIEF<br>
+</div>
+
+<div class="question">
+<p>10. SURF is commonly used for?</p>
+<input type="radio" name="q10" value="0">A. Audio Processing<br>
+<input type="radio" name="q10" value="1">B. Image Matching<br>
+<input type="radio" name="q10" value="0">C. Text Compression<br>
+<input type="radio" name="q10" value="0">D. Speech Coding<br>
+</div>
+
+<button type="button" onclick="gradeQuiz()">Submit</button>
+
+</form>
+
+<div id="result"></div>
+
+<script>
+function gradeQuiz(){
+let score=0;
+let total=10;
+for(let i=1;i<=10;i++){
+let ans=document.querySelector('input[name="q'+i+'"]:checked');
+if(ans) score+=parseInt(ans.value);
+}
+let percent=(score/total)*100;
+let msg="Score: "+score+"/10 ("+percent+"%)<br>";
+
+if(score>=8)
+msg+="Excellent! Mastery achieved. Proceed to advanced feature matching topics.";
+else
+msg+="Please revise the SURF session before proceeding.";
+
+document.getElementById("result").innerHTML=msg;
+}
+</script>
+
+</body>
+</html>
