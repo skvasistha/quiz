@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>PCA Mastery Quiz</title>
+<style>
+body{
+font-family:Arial;
+max-width:900px;
+margin:auto;
+padding:20px;
+background:#f4f7fb;
+}
+.question{
+background:white;
+padding:15px;
+margin:10px 0;
+border-radius:8px;
+}
+button{
+padding:10px 20px;
+background:#007bff;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+#result{
+margin-top:20px;
+font-size:20px;
+font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<h2>PCA Mastery Quiz</h2>
+
+<form id="quiz">
+
+<div class="question">
+Q1. PCA stands for?
+<br><input type="radio" name="q1" value="1">A. Principal Component Analysis
+<br><input type="radio" name="q1" value="0">B. Primary Classification Algorithm
+<br><input type="radio" name="q1" value="0">C. Parallel Component Analysis
+<br><input type="radio" name="q1" value="0">D. Principal Correlation Assessment
+</div>
+
+<div class="question">
+Q2. PCA mainly performs:
+<br><input type="radio" name="q2" value="0">A. Classification
+<br><input type="radio" name="q2" value="1">B. Dimensionality Reduction
+<br><input type="radio" name="q2" value="0">C. Clustering
+<br><input type="radio" name="q2" value="0">D. Regression
+</div>
+
+<div class="question">
+Q3. PCA creates:
+<br><input type="radio" name="q3" value="0">A. Labels
+<br><input type="radio" name="q3" value="1">B. Principal Components
+<br><input type="radio" name="q3" value="0">C. Trees
+<br><input type="radio" name="q3" value="0">D. Clusters
+</div>
+
+<div class="question">
+Q4. PCA relies on:
+<br><input type="radio" name="q4" value="0">A. Entropy
+<br><input type="radio" name="q4" value="1">B. Eigenvalues
+<br><input type="radio" name="q4" value="0">C. Hashing
+<br><input type="radio" name="q4" value="0">D. Sorting
+</div>
+
+<div class="question">
+Q5. PCA components are generally:
+<br><input type="radio" name="q5" value="0">A. Correlated
+<br><input type="radio" name="q5" value="1">B. Uncorrelated
+<br><input type="radio" name="q5" value="0">C. Categorical
+<br><input type="radio" name="q5" value="0">D. Random
+</div>
+
+<div class="question">
+Q6. Largest eigenvalue corresponds to:
+<br><input type="radio" name="q6" value="1">A. PC1
+<br><input type="radio" name="q6" value="0">B. PC2
+<br><input type="radio" name="q6" value="0">C. PC3
+<br><input type="radio" name="q6" value="0">D. PC4
+</div>
+
+<div class="question">
+Q7. PCA helps reduce:
+<br><input type="radio" name="q7" value="0">A. Labels
+<br><input type="radio" name="q7" value="1">B. Feature Dimensions
+<br><input type="radio" name="q7" value="0">C. Classes
+<br><input type="radio" name="q7" value="0">D. Algorithms
+</div>
+
+<div class="question">
+Q8. Standardization is important because:
+<br><input type="radio" name="q8" value="1">A. Features may have different scales
+<br><input type="radio" name="q8" value="0">B. It increases labels
+<br><input type="radio" name="q8" value="0">C. It creates clusters
+<br><input type="radio" name="q8" value="0">D. It removes samples
+</div>
+
+<div class="question">
+Q9. PCA is mainly a:
+<br><input type="radio" name="q9" value="1">A. Linear Technique
+<br><input type="radio" name="q9" value="0">B. Nonlinear Technique
+<br><input type="radio" name="q9" value="0">C. Classification Technique
+<br><input type="radio" name="q9" value="0">D. Clustering Technique
+</div>
+
+<div class="question">
+Q10. If PC1 and PC2 explain 85% variance, retained information is:
+<br><input type="radio" name="q10" value="0">A. 15%
+<br><input type="radio" name="q10" value="1">B. 85%
+<br><input type="radio" name="q10" value="0">C. 50%
+<br><input type="radio" name="q10" value="0">D. 100%
+</div>
+
+<button type="button" onclick="gradeQuiz()">Submit</button>
+
+</form>
+
+<div id="result"></div>
+
+<script>
+function gradeQuiz(){
+let score=0;
+let answers=document.querySelectorAll('input[type=radio]:checked');
+answers.forEach(a=>score+=parseInt(a.value));
+
+let percent=(score/10)*100;
+
+let message="Score: "+score+"/10 ("+percent+"%)<br>";
+
+if(score>=8){
+message+="🎉 Mastery Achieved! You are ready to progress.";
+}
+else{
+message+="📘 Please revise the lesson and attempt again before proceeding.";
+}
+
+document.getElementById("result").innerHTML=message;
+}
+</script>
+
+</body>
+</html>
