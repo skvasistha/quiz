@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Motion Features Mastery Quiz</title>
+<style>
+body{
+font-family:Arial,sans-serif;
+max-width:900px;
+margin:auto;
+padding:20px;
+background:#f4f7fb;
+}
+.question{
+background:white;
+padding:15px;
+margin:10px 0;
+border-radius:8px;
+}
+button{
+padding:10px 20px;
+font-size:16px;
+background:#0066cc;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+#result{
+margin-top:20px;
+font-weight:bold;
+font-size:18px;
+}
+</style>
+</head>
+<body>
+
+<h2>Motion Vectors, Optical Flow & Feature Types Quiz</h2>
+
+<form id="quiz">
+
+<div class="question">
+Q1. Motion vectors represent:
+<br><input type="radio" name="q1" value="A"> A. Color changes
+<br><input type="radio" name="q1" value="B"> B. Object displacement
+<br><input type="radio" name="q1" value="C"> C. Audio energy
+<br><input type="radio" name="q1" value="D"> D. Texture variation
+</div>
+
+<div class="question">
+Q2. Optical flow estimates:
+<br><input type="radio" name="q2" value="A"> A. Pixel motion
+<br><input type="radio" name="q2" value="B"> B. Audio frequency
+<br><input type="radio" name="q2" value="C"> C. Compression ratio
+<br><input type="radio" name="q2" value="D"> D. Histogram bins
+</div>
+
+<div class="question">
+Q3. Frame-based features require:
+<br><input type="radio" name="q3" value="A"> A. Multiple videos
+<br><input type="radio" name="q3" value="B"> B. Multiple cameras
+<br><input type="radio" name="q3" value="C"> C. Single frame
+<br><input type="radio" name="q3" value="D"> D. Optical flow
+</div>
+
+<div class="question">
+Q4. Sequence-based features primarily capture:
+<br><input type="radio" name="q4" value="A"> A. Temporal information
+<br><input type="radio" name="q4" value="B"> B. Printer settings
+<br><input type="radio" name="q4" value="C"> C. File size
+<br><input type="radio" name="q4" value="D"> D. Metadata
+</div>
+
+<div class="question">
+Q5. Motion vector (3,4) has magnitude:
+<br><input type="radio" name="q5" value="A"> A. 4
+<br><input type="radio" name="q5" value="B"> B. 7
+<br><input type="radio" name="q5" value="C"> C. 5
+<br><input type="radio" name="q5" value="D"> D. 3
+</div>
+
+<div class="question">
+Q6. SAD is used in:
+<br><input type="radio" name="q6" value="A"> A. Block matching
+<br><input type="radio" name="q6" value="B"> B. Encryption
+<br><input type="radio" name="q6" value="C"> C. Networking
+<br><input type="radio" name="q6" value="D"> D. Audio coding
+</div>
+
+<div class="question">
+Q7. Optical flow is generally:
+<br><input type="radio" name="q7" value="A"> A. Less detailed
+<br><input type="radio" name="q7" value="B"> B. More detailed
+<br><input type="radio" name="q7" value="C"> C. Static
+<br><input type="radio" name="q7" value="D"> D. Random
+</div>
+
+<div class="question">
+Q8. Which is frame-based?
+<br><input type="radio" name="q8" value="A"> A. Motion trajectory
+<br><input type="radio" name="q8" value="B"> B. Optical flow
+<br><input type="radio" name="q8" value="C"> C. Color histogram
+<br><input type="radio" name="q8" value="D"> D. Motion vector
+</div>
+
+<div class="question">
+Q9. Which is sequence-based?
+<br><input type="radio" name="q9" value="A"> A. Edge map
+<br><input type="radio" name="q9" value="B"> B. Texture
+<br><input type="radio" name="q9" value="C"> C. Shape
+<br><input type="radio" name="q9" value="D"> D. Optical flow
+</div>
+
+<div class="question">
+Q10. Action recognition usually benefits most from:
+<br><input type="radio" name="q10" value="A"> A. Sequence-based features
+<br><input type="radio" name="q10" value="B"> B. Single pixel
+<br><input type="radio" name="q10" value="C"> C. Metadata
+<br><input type="radio" name="q10" value="D"> D. File names
+</div>
+
+<button type="button" onclick="gradeQuiz()">Submit Quiz</button>
+
+</form>
+
+<div id="result"></div>
+
+<script>
+function gradeQuiz(){
+const answers={
+q1:"B",
+q2:"A",
+q3:"C",
+q4:"A",
+q5:"C",
+q6:"A",
+q7:"B",
+q8:"C",
+q9:"D",
+q10:"A"
+};
+
+let score=0;
+
+for(let q in answers){
+let selected=document.querySelector('input[name="'+q+'"]:checked');
+if(selected && selected.value===answers[q]){
+score++;
+}
+}
+
+let percentage=(score/10)*100;
+let msg="Score: "+score+"/10 ("+percentage+"%)<br>";
+
+if(score>=8){
+msg+="🎉 Mastery Achieved! You may proceed to advanced video analysis topics.";
+}else{
+msg+="📚 Recommendation: Revise the lesson and retry the quiz before proceeding.";
+}
+
+document.getElementById("result").innerHTML=msg;
+}
+</script>
+
+</body>
+</html>
