@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ORB Mastery Quiz</title>
+<style>
+body{
+font-family:Arial;
+max-width:900px;
+margin:auto;
+padding:20px;
+background:#f4f7fb;
+}
+.question{
+background:white;
+padding:15px;
+margin:10px 0;
+border-radius:10px;
+}
+button{
+padding:10px 20px;
+font-size:16px;
+background:#0066cc;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+#result{
+margin-top:20px;
+font-size:20px;
+font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<h1>ORB Mastery Quiz</h1>
+
+<form id="quiz">
+
+<div class="question">
+<p>1. ORB combines?</p>
+<input type="radio" name="q1" value="1"> FAST + BRIEF<br>
+<input type="radio" name="q1" value="0"> SIFT + SURF<br>
+<input type="radio" name="q1" value="0"> Sobel + Canny<br>
+<input type="radio" name="q1" value="0"> Harris + Laplacian
+</div>
+
+<div class="question">
+<p>2. FAST primarily performs?</p>
+<input type="radio" name="q2" value="1"> Keypoint Detection<br>
+<input type="radio" name="q2" value="0"> Segmentation<br>
+<input type="radio" name="q2" value="0"> Compression<br>
+<input type="radio" name="q2" value="0"> Denoising
+</div>
+
+<div class="question">
+<p>3. ORB descriptor type?</p>
+<input type="radio" name="q3" value="1"> Binary<br>
+<input type="radio" name="q3" value="0"> Floating-point only<br>
+<input type="radio" name="q3" value="0"> Complex-valued<br>
+<input type="radio" name="q3" value="0"> Integer histogram
+</div>
+
+<div class="question">
+<p>4. Harris ranking is used to?</p>
+<input type="radio" name="q4" value="1"> Select strong corners<br>
+<input type="radio" name="q4" value="0"> Blur image<br>
+<input type="radio" name="q4" value="0"> Compress image<br>
+<input type="radio" name="q4" value="0"> Remove descriptors
+</div>
+
+<div class="question">
+<p>5. Hamming distance is used for?</p>
+<input type="radio" name="q5" value="1"> Descriptor matching<br>
+<input type="radio" name="q5" value="0"> Color balancing<br>
+<input type="radio" name="q5" value="0"> Histogram equalization<br>
+<input type="radio" name="q5" value="0"> Thresholding
+</div>
+
+<div class="question">
+<p>6. ORB orientation comes from?</p>
+<input type="radio" name="q6" value="1"> Intensity centroid<br>
+<input type="radio" name="q6" value="0"> RGB averaging<br>
+<input type="radio" name="q6" value="0"> Fourier transform<br>
+<input type="radio" name="q6" value="0"> Laplacian
+</div>
+
+<div class="question">
+<p>7. Smaller Hamming distance means?</p>
+<input type="radio" name="q7" value="1"> Better match<br>
+<input type="radio" name="q7" value="0"> Worse match<br>
+<input type="radio" name="q7" value="0"> No relation<br>
+<input type="radio" name="q7" value="0"> More corners
+</div>
+
+<div class="question">
+<p>8. BRIEF generates?</p>
+<input type="radio" name="q8" value="1"> Binary descriptor<br>
+<input type="radio" name="q8" value="0"> Edge map<br>
+<input type="radio" name="q8" value="0"> Segmented image<br>
+<input type="radio" name="q8" value="0"> Histogram
+</div>
+
+<div class="question">
+<p>9. ORB is popular because it is?</p>
+<input type="radio" name="q9" value="1"> Fast and efficient<br>
+<input type="radio" name="q9" value="0"> Computationally expensive<br>
+<input type="radio" name="q9" value="0"> Color dependent<br>
+<input type="radio" name="q9" value="0"> Hardware specific
+</div>
+
+<div class="question">
+<p>10. ORB is commonly used in?</p>
+<input type="radio" name="q10" value="1"> SLAM<br>
+<input type="radio" name="q10" value="0"> Audio coding<br>
+<input type="radio" name="q10" value="0"> Speech synthesis<br>
+<input type="radio" name="q10" value="0"> Database indexing
+</div>
+
+<button type="button" onclick="gradeQuiz()">Submit</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+function gradeQuiz(){
+let score=0;
+let answers=document.querySelectorAll('input[type=radio]:checked');
+answers.forEach(a=>score+=parseInt(a.value));
+
+let percent=(score/10)*100;
+
+let msg="";
+if(score>=8){
+msg="Mastery Achieved! Score: "+score+"/10 ("+percent+"%). You are ready to progress.";
+}else{
+msg="Score: "+score+"/10 ("+percent+"%). Please revise the ORB session before proceeding.";
+}
+
+document.getElementById("result").innerHTML=msg;
+}
+</script>
+
+</body>
+</html>
