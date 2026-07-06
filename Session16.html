@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Object Detection & Semantic Segmentation Mastery Quiz</title>
+
+<style>
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f2f6fc;
+    margin:20px;
+}
+.container{
+    max-width:900px;
+    margin:auto;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 0 12px rgba(0,0,0,0.2);
+}
+h1{
+    text-align:center;
+    color:#0b5394;
+}
+.question{
+    margin-bottom:25px;
+    padding:15px;
+    border-left:5px solid #0b5394;
+    background:#f9fbff;
+}
+.options label{
+    display:block;
+    margin:8px 0;
+    cursor:pointer;
+}
+button{
+    background:#0b5394;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    font-size:18px;
+    border-radius:5px;
+    cursor:pointer;
+}
+button:hover{
+    background:#073763;
+}
+#result{
+    margin-top:25px;
+    padding:20px;
+    font-size:20px;
+    font-weight:bold;
+    border-radius:8px;
+}
+.correct{
+    color:green;
+}
+.wrong{
+    color:red;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Mastery Quiz</h1>
+<h2>Object Detection & Semantic Segmentation</h2>
+
+<form id="quiz">
+
+<div class="question">
+<p><b>1. What is the primary output of an object detection model?</b></p>
+<div class="options">
+<label><input type="radio" name="q1" value="a"> A. Image brightness</label>
+<label><input type="radio" name="q1" value="b"> B. Bounding boxes and class labels</label>
+<label><input type="radio" name="q1" value="c"> C. Pixel colors</label>
+<label><input type="radio" name="q1" value="d"> D. Only image category</label>
+</div>
+</div>
+
+<div class="question">
+<p><b>2. Which algorithm divides an image into grids for prediction?</b></p>
+<div class="options">
+<label><input type="radio" name="q2" value="a"> A. SSD</label>
+<label><input type="radio" name="q2" value="b"> B. YOLO</label>
+<label><input type="radio" name="q2" value="c"> C. Selective Search</label>
+<label><input type="radio" name="q2" value="d"> D. K-Means</label>
+</div>
+</div>
+
+<div class="question">
+<p><b>3. Which method first generates candidate object regions?</b></p>
+<div class="options">
+<label><input type="radio" name="q3" value="a"> A. YOLO</label>
+<label><input type="radio" name="q3" value="b"> B. SSD</label>
+<label><input type="radio" name="q3" value="c"> C. Region Proposal</label>
+<label><input type="radio" name="q3" value="d"> D. AlexNet</label>
+</div>
+</div>
+
+<div class="question">
+<p><b>4. SSD mainly improves detection by using:</b></p>
+<div class="options">
+<label><input type="radio" name="q4" value="a"> A. One feature map</label>
+<label><input type="radio" name="q4" value="b"> B. Multiple feature maps</label>
+<label><input type="radio" name="q4" value="c"> C. Manual cropping</label>
+<label><input type="radio" name="q4" value="d"> D. Histogram equalization</label>
+</div>
+</div>
+
+<div class="question">
+<p><b>5. Semantic segmentation assigns labels to:</b></p>
+<div class="options">
+<label><input type="radio" name="q5" value="a"> A. Objects only</label>
+<label><input type="radio" name="q5" value="b"> B. Every pixel</label>
+<label><input type="radio" name="q5" value="c"> C. Only image corners</label>
+<label><input type="radio" name="q5" value="d"> D. Bounding boxes</label>
+</div>
+</div>
+
+<div class="question">
+<p><b>6. IoU stands for:</b></p>
+<div class="options">
+<label><input type="radio" name="q6" value="a"> A. Internal Output Unit</label>
+<label><input type="radio" name="q6" value="b"> B. Image Over Utility</label>
+<label><input type="radio" name="q6" value="c"> C. Intersection over Union</label>
+<label><input type="radio" name="q6" value="d"> D. Image Optimization Unit</label>
+</div>
+</div>
+
+<div class="question">
+<p><b>7. Non-Maximum Suppression is used to:</b></p>
+<div class="options">
+<label><input type="radio" name="q7" value="a"> A. Remove duplicate detections</label>
+<label><input type="radio" name="q7" value="b"> B. Increase image resolution</label>
+<label><input type="radio" name="q7" value="c"> C. Train CNN</label>
+<label><input type="radio" name="q7" value="d"> D. Resize images</label>
+</div>
+</div>
+
+<div class="question">
+<p><b>8. Which detector is best known for real-time performance?</b></p>
+<div class="options">
+<label><input type="radio" name="q8" value="a"> A. YOLO</label>
+<label><input type="radio" name="q8" value="b"> B. Region Proposal</label>
+<label><input type="radio" name="q8" value="c"> C. R-CNN</label>
+<label><input type="radio" name="q8" value="d"> D. Haar Cascade</label>
+</div>
+</div>
+
+<div class="question">
+<p><b>9. Which component restores image resolution in semantic segmentation?</b></p>
+<div class="options">
+<label><input type="radio" name="q9" value="a"> A. Encoder</label>
+<label><input type="radio" name="q9" value="b"> B. Decoder</label>
+<label><input type="radio" name="q9" value="c"> C. Softmax</label>
+<label><input type="radio" name="q9" value="d"> D. Pooling</label>
+</div>
+</div>
+
+<div class="question">
+<p><b>10. Which application requires pixel-level image understanding?</b></p>
+<div class="options">
+<label><input type="radio" name="q10" value="a"> A. Semantic Segmentation</label>
+<label><input type="radio" name="q10" value="b"> B. Image Compression</label>
+<label><input type="radio" name="q10" value="c"> C. Text Recognition Only</label>
+<label><input type="radio" name="q10" value="d"> D. Audio Processing</label>
+</div>
+</div>
+
+<button type="button" onclick="checkQuiz()">Submit Quiz</button>
+
+</form>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+function checkQuiz(){
+
+const answers={
+q1:"b",
+q2:"b",
+q3:"c",
+q4:"b",
+q5:"b",
+q6:"c",
+q7:"a",
+q8:"a",
+q9:"b",
+q10:"a"
+};
+
+let score=0;
+let feedback="";
+
+for(let key in answers){
+
+let selected=document.querySelector('input[name="'+key+'"]:checked');
+
+if(selected){
+
+if(selected.value===answers[key]){
+score++;
+feedback+="<p class='correct'>"+key.toUpperCase()+" ✔ Correct</p>";
+}
+else{
+feedback+="<p class='wrong'>"+key.toUpperCase()+" ✘ Wrong (Correct Answer: "+answers[key].toUpperCase()+")</p>";
+}
+
+}
+else{
+feedback+="<p class='wrong'>"+key.toUpperCase()+" ✘ Not Attempted</p>";
+}
+
+}
+
+let percent=(score/10)*100;
+
+let msg="";
+
+if(score>=8){
+msg="<h2 style='color:green'>🎉 Mastery Achieved!</h2><p>You scored "+score+"/10 ("+percent+"%). Excellent! You are ready to proceed to more advanced computer vision topics.</p>";
+}
+else{
+msg="<h2 style='color:red'>📘 Revision Recommended</h2><p>You scored "+score+"/10 ("+percent+"%). Please revise the lesson before proceeding. Focus on YOLO, SSD, Region Proposal methods, IoU, NMS, and Semantic Segmentation.</p>";
+}
+
+document.getElementById("result").innerHTML=msg+"<hr><h3>Answer Feedback</h3>"+feedback;
+
+window.scrollTo(0,document.body.scrollHeight);
+
+}
+
+</script>
+
+</body>
+</html>
